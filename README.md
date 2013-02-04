@@ -7,6 +7,9 @@ Built for speed.
 
 ### options
  - linksToNewTab
+	
+	Open links in a new tab, default: false
+
 
 ## Benchmarks
 
