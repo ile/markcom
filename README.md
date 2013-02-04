@@ -3,6 +3,11 @@
 A full-featured markdown parser and compiler, written in javascript.
 Built for speed.
 
+## Features added as compared to https://github.com/ile/marked
+
+### options
+ - linksToNewTab
+
 ## Benchmarks
 
 node v0.4.x
