@@ -3,7 +3,7 @@
 A full-featured markdown parser and compiler, written in javascript.
 Built for speed.
 
-## Features added as compared to https://github.com/ile/marked
+## Features added as compared to https://github.com/chjj/marked
 
 ### options
  - linksToNewTab
