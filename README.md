@@ -10,6 +10,9 @@ Built for speed.
 	
 	Open links in a new tab, default: false
 
+## Features removed as compared to https://github.com/chjj/marked
+
+- headings
 
 ## Benchmarks
 
@@ -144,5 +147,7 @@ $ cat hello.html
 ## License
 
 Copyright (c) 2011-2013, Christopher Jeffrey. (MIT License)
+		
+Copyright (c) 2013 partly, Ilkka Huotari. (MIT License)
 
 See LICENSE for more info.
