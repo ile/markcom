@@ -1,6 +1,6 @@
 {
   "name": "markcom",
-  "description": "A markdown parser built for speed",
+  "description": "A markdown parser built for comment sections and speed",
   "author": "Christopher Jeffrey",
   "version": "0.2.7",
   "main": "./lib/marked.js",
