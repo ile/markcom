@@ -10,7 +10,7 @@ This is forked from [marked](https://github.com/chjj/marked), and is intended to
 ### options
  - linksToNewTab
 	
-	Open links in a new tab, default: false
+	Open links in a new tab, default: true
 
 ## Features removed as compared to [marked](https://github.com/chjj/marked)
 
