@@ -1,5 +1,5 @@
 {
-  "name": "marked",
+  "name": "markcom",
   "description": "A markdown parser built for speed",
   "author": "Christopher Jeffrey",
   "version": "0.2.7",
@@ -7,9 +7,9 @@
   "bin": "./bin/marked",
   "man": "./man/marked.1",
   "preferGlobal": true,
-  "repository": "git://github.com/chjj/marked.git",
-  "homepage": "https://github.com/chjj/marked",
-  "bugs": { "url": "http://github.com/chjj/marked/issues" },
+  "repository": "git://github.com/ile/markcom.git",
+  "homepage": "hhttps://github.com/ile/markcom",
+  "bugs": { "url": "https://github.com/ile/markcom/issues" },
   "keywords": ["markdown", "markup", "html"],
   "tags": ["markdown", "markup", "html"],
   "scripts": { "test": "node test", "bench": "node test --bench" }
