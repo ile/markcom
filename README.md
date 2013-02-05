@@ -16,6 +16,23 @@ This is forked from [marked](https://github.com/chjj/marked), and is intended to
 
 - headings
 
+## default options
+
+```javascript
+marked.defaults = {
+  gfm: true,
+  tables: true,
+  breaks: false,
+  pedantic: false,
+  sanitize: true,
+  smartLists: true,
+  silent: false,
+  highlight: null,
+  langPrefix: 'lang-',
+  linksToNewTab: true
+};
+```
+
 ## Benchmarks
 
 node v0.4.x
