@@ -2,7 +2,7 @@
   "name": "markcom",
   "description": "A markdown parser built for comment sections and speed",
   "author": "Christopher Jeffrey",
-  "version": "0.2.7",
+  "version": "0.2.9",
   "main": "./lib/marked.js",
   "bin": "./bin/marked",
   "man": "./man/marked.1",
@@ -12,5 +12,10 @@
   "bugs": { "url": "https://github.com/ile/markcom/issues" },
   "keywords": ["markdown", "markup", "html"],
   "tags": ["markdown", "markup", "html"],
+  "devDependencies": {
+    "markdown": "*",
+    "showdown": "*",
+    "robotskirt": "*"
+  },
   "scripts": { "test": "node test", "bench": "node test --bench" }
 }

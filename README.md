@@ -1,7 +1,179 @@
 # markcom
 
-A full-featured markdown parser and compiler, written in javascript.
-Built for speed.
+> A full-featured markdown parser and compiler, written in JavaScript. Built for speed.
+
+[![NPM version](https://badge.fury.io/js/marked.png)](http://badge.fury.io/js/marked)  
+
+## Install
+
+``` bash
+npm install marked --save
+```
+
+## Usage
+
+Minimal usage:
+```js
+console.log(marked('I am using __markdown__.'));
+// Outputs: <p>I am using <i>markdown</i>.</p>
+```
+
+Example using all options:
+```js
+// Set default options except highlight which has no default
+marked.setOptions({
+  gfm: true,
+  highlight: function (code, lang, callback) {
+    pygmentize({ lang: lang, format: 'html' }, code, function (err, result) {
+      callback(err, result.toString());
+    });
+  },
+  tables: true,
+  breaks: false,
+  pedantic: false,
+  sanitize: true,
+  smartLists: true,
+  smartypants: false,
+  langPrefix: 'lang-'
+});
+
+console.log(marked('I am using __markdown__.'));
+```
+
+## marked(markdownString, [options], [callback])
+
+### markdownString
+Type: `String`
+
+String of markdown source to be compiled.
+
+### options
+Type: `Object`
+
+Hash of options. Can also be set using the `marked.setOptions` method as seen above.
+
+### callback
+Type: `Function`
+
+Function called when the `markdownString` has been fully parsed. If the `options` argument is omitted, this can be used as the second argument as follows:
+```js
+marked(markdownString, function (err, content) {
+  if (err) throw err;
+  console.log(content);
+  // Outputs parsed html
+});
+```
+## Options
+
+### gfm
+Type: `Boolean`
+Default: `true`
+
+Enable [GitHub flavored markdown](https://help.github.com/articles/github-flavored-markdown).
+
+### highlight
+Type: `Function`
+
+A function to highlight code blocks. The function takes three arguments: code, lang, and callback. The above example uses async highlighting with [node-pygementize-bundled](https://github.com/rvagg/node-pygmentize-bundled), and here is a synchronous example using [highlight.js](https://github.com/isagalaev/highlight.js) which doesn't require the callback argument:
+
+```js
+marked.setOptions({
+  highlight: function (lang, code) {
+    return hljs.highlightAuto(lang, code).value;
+  }
+});
+```
+
+#### highlight arguments
+`code`
+
+Type: `String`
+
+The section of code to pass to the highlighter.
+
+`lang`
+
+Type: `String`
+
+The programming language specified in the code block.
+
+`callback`
+
+Type: `String`
+
+The callback function to call when using an async highlighter.
+
+### tables
+Type: `Boolean`
+Default: `true`
+
+Enable GFM [tables](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#wiki-tables). This option requires the
+  `gfm` option to be true.
+
+### breaks
+Type: `Boolean`
+Default: `false`
+
+Enable GFM [line breaks](https://help.github.com/articles/github-flavored-markdown#newlines). This option requires the
+  `gfm` option to be true.
+
+### pedantic
+Type: `Boolean`
+Default: `false`
+
+Conform to obscure parts of `markdown.pl` as much as possible. Don't fix any of the original markdown bugs or poor behavior.
+
+### sanitize
+Type: `Boolean`
+Default: `true`
+
+Sanitize the output. Ignore any HTML that has been input.
+
+### smartLists
+Type: `Boolean`
+Default: `true`
+
+Use smarter list behavior than the original markdown.
+  May eventually be default with the old behavior
+  moved into `pedantic`.
+
+### smartypants
+Type: `Boolean`
+Default: `false`
+
+Use "smart" typograhic punctuation for things like quotes
+  and dashes.
+
+### langPrefix
+Type: `String`
+Default: `lang-`
+
+Set the prefix for code block classes.
+
+## Access to lexer and parser
+You also have direct access to the lexer and parser if you so desire.
+
+``` js
+var tokens = marked.lexer(text, options);
+console.log(marked.parser(tokens));
+```
+
+``` js
+var lexer = new marked.Lexer(options);
+var tokens = lexer.lex(text);
+console.log(tokens);
+console.log(lexer.rules);
+```
+
+## CLI
+
+``` bash
+$ marked -o hello.html
+hello world
+^D
+$ cat hello.html
+<p>hello world</p>
+```
 
 This is forked from [marked](https://github.com/chjj/marked), and is intended to be used in a comment sections on website, thus a little different feature set.
 
@@ -64,10 +236,21 @@ For those feeling skeptical: These benchmarks run the entire markdown test suite
 1000 times. The test suite tests every feature. It doesn't cater to specific
 aspects.
 
-## Install
+node v0.8.x
 
 ``` bash
+<<<<<<< HEAD
 $ npm install markcom
+=======
+$ node test --bench
+marked completed in 3411ms.
+marked (gfm) completed in 3727ms.
+marked (pedantic) completed in 3201ms.
+robotskirt completed in 808ms.
+showdown (reuse converter) completed in 11954ms.
+showdown (new converter) completed in 17774ms.
+markdown-js completed in 17191ms.
+>>>>>>> upstream/master
 ```
 
 ## Another Javascript Markdown Parser
@@ -90,6 +273,7 @@ disadvantage in the benchmarks above.
 Along with implementing every markdown feature, markcom also implements
 [GFM features](http://github.github.com/github-flavored-markdown/).
 
+<<<<<<< HEAD
 ## Options
 
 markcom has a few different switches which change behavior.
@@ -143,6 +327,8 @@ console.log(tokens);
 console.log(lexer.rules);
 ```
 
+=======
+>>>>>>> upstream/master
 ``` bash
 $ node
 > require('markcom').lexer('> i am using markcom.')
@@ -153,6 +339,7 @@ $ node
   links: {} ]
 ```
 
+<<<<<<< HEAD
 ## CLI
 
 ``` bash
@@ -163,6 +350,8 @@ $ cat hello.html
 <p>hello world</p>
 ```
 
+=======
+>>>>>>> upstream/master
 ## License
 
 Copyright (c) 2011-2013, Christopher Jeffrey. (MIT License)
