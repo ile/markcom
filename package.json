@@ -1,5 +1,5 @@
 {
-  "name": "markcom",
+  "name": "marked-up",
   "description": "A markdown parser built for comment sections and speed",
   "author": "Christopher Jeffrey",
   "version": "0.2.9",
@@ -7,9 +7,9 @@
   "bin": "./bin/marked",
   "man": "./man/marked.1",
   "preferGlobal": true,
-  "repository": "git://github.com/ile/markcom.git",
-  "homepage": "hhttps://github.com/ile/markcom",
-  "bugs": { "url": "https://github.com/ile/markcom/issues" },
+  "repository": "git://github.com/ile/marked-up.git",
+  "homepage": "hhttps://github.com/ile/marked-up",
+  "bugs": { "url": "https://github.com/ile/marked-up/issues" },
   "keywords": ["markdown", "markup", "html"],
   "tags": ["markdown", "markup", "html"],
   "devDependencies": {

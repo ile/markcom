@@ -1,4 +1,4 @@
-# markcom
+# marked-up
 
 > A full-featured markdown parser and compiler, written in JavaScript. Built for speed.
 
@@ -211,7 +211,7 @@ node v0.4.x
 
 ``` bash
 $ node test --bench
-markcom completed in 12071ms.
+marked-up completed in 12071ms.
 showdown (reuse converter) completed in 27387ms.
 showdown (new converter) completed in 75617ms.
 markdown-js completed in 70069ms.
@@ -221,16 +221,16 @@ node v0.6.x
 
 ``` bash
 $ node test --bench
-markcom completed in 6448ms.
-markcom (gfm) completed in 7357ms.
-markcom (pedantic) completed in 6092ms.
+marked-up completed in 6448ms.
+marked-up (gfm) completed in 7357ms.
+marked-up (pedantic) completed in 6092ms.
 discount completed in 7314ms.
 showdown (reuse converter) completed in 16018ms.
 showdown (new converter) completed in 18234ms.
 markdown-js completed in 24270ms.
 ```
 
-__markcom is now faster than Discount, which is written in C.__
+__marked-up is now faster than Discount, which is written in C.__
 
 For those feeling skeptical: These benchmarks run the entire markdown test suite
 1000 times. The test suite tests every feature. It doesn't cater to specific
@@ -240,7 +240,7 @@ node v0.8.x
 
 ``` bash
 <<<<<<< HEAD
-$ npm install markcom
+$ npm install marked-up
 =======
 $ node test --bench
 marked completed in 3411ms.
@@ -255,28 +255,28 @@ markdown-js completed in 17191ms.
 
 ## Another Javascript Markdown Parser
 
-The point of markcom was to create a markdown compiler where it was possible to
+The point of marked-up was to create a markdown compiler where it was possible to
 frequently parse huge chunks of markdown without having to worry about
 caching the compiled output somehow...or blocking for an unnecesarily long time.
 
-markcom is very concise and still implements all markdown features. It is also
+marked-up is very concise and still implements all markdown features. It is also
 now fully compatible with the client-side.
 
-markcom more or less passes the official markdown test suite in its
+marked-up more or less passes the official markdown test suite in its
 entirety. This is important because a surprising number of markdown compilers
-cannot pass more than a few tests. It was very difficult to get markcom as
+cannot pass more than a few tests. It was very difficult to get marked-up as
 compliant as it is. It could have cut corners in several areas for the sake
 of performance, but did not in order to be exactly what you expect in terms
-of a markdown rendering. In fact, this is why markcom could be considered at a
+of a markdown rendering. In fact, this is why marked-up could be considered at a
 disadvantage in the benchmarks above.
 
-Along with implementing every markdown feature, markcom also implements
+Along with implementing every markdown feature, marked-up also implements
 [GFM features](http://github.github.com/github-flavored-markdown/).
 
 <<<<<<< HEAD
 ## Options
 
-markcom has a few different switches which change behavior.
+marked-up has a few different switches which change behavior.
 
 - __pedantic__: Conform to obscure parts of `markdown.pl` as much as possible.
   Don't fix any of the original markdown bugs or poor behavior.
@@ -295,7 +295,7 @@ markcom has a few different switches which change behavior.
 
 ``` js
 // Set default options
-markcom.setOptions({
+marked-up.setOptions({
   gfm: true,
   tables: true,
   breaks: false,
@@ -310,18 +310,18 @@ markcom.setOptions({
     return code;
   }
 });
-console.log(markcom('i am using __markdown__.'));
+console.log(marked-up('i am using __markdown__.'));
 ```
 
 You also have direct access to the lexer and parser if you so desire.
 
 ``` js
-var tokens = markcom.lexer(text, options);
-console.log(markcom.parser(tokens));
+var tokens = marked-up.lexer(text, options);
+console.log(marked-up.parser(tokens));
 ```
 
 ``` js
-var lexer = new markcom.Lexer(options);
+var lexer = new marked-up.Lexer(options);
 var tokens = lexer.lex(text);
 console.log(tokens);
 console.log(lexer.rules);
@@ -331,10 +331,10 @@ console.log(lexer.rules);
 >>>>>>> upstream/master
 ``` bash
 $ node
-> require('markcom').lexer('> i am using markcom.')
+> require('marked-up').lexer('> i am using marked-up.')
 [ { type: 'blockquote_start' },
   { type: 'paragraph',
-    text: 'i am using markcom.' },
+    text: 'i am using marked-up.' },
   { type: 'blockquote_end' },
   links: {} ]
 ```
@@ -343,7 +343,7 @@ $ node
 ## CLI
 
 ``` bash
-$ markcom -o hello.html
+$ marked-up -o hello.html
 hello world
 ^D
 $ cat hello.html
